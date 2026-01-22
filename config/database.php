@@ -1,6 +1,6 @@
 <?php
 class Database {
-    private $host = 'db';  // Nombre del servicio en docker-compose
+    private $host = 'quetzal_db';  // Nombre del contenedor de base de datos
     private $db_name = 'quetzal_finanzas';
     private $username = 'quetzal_user';
     private $password = 'quetzal123';
