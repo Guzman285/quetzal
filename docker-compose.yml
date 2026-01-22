@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  web:
+    image: php:8.2-apache
+    container_name: quetzal_web
+    ports:
+      - "8080:80"
+    volumes:
+      - ./:/var/www/html
+    depends_on:
+      - db
+    networks:
+      - quetzal_network
+
+  db:
+    image: mysql:8.0
+    container_name: quetzal_db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: quetzal_finanzas
+      MYSQL_USER: quetzal_user
+      MYSQL_PASSWORD: quetzal123
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - quetzal_network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: quetzal_phpmyadmin
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: root
+    ports:
+      - "8081:80"
+    depends_on:
+      - db
+    networks:
+      - quetzal_network
+
+volumes:
+  db_data:
+
+networks:
+  quetzal_network:

@@ -1,0 +1,25 @@
+# Archivos de configuración local
+.env
+.env.local
+
+# IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Dependencias de composer (cuando se agregue)
+vendor/
+
+# Archivos temporales
+*.tmp
+*.swp
+*.swo
+*~
